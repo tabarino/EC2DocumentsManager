@@ -1,0 +1,21 @@
+/.git
+.gitattributes
+.gitignore
+.env.example
+/node_modules
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Mac file
+.DS_Store
+
+# Omit contents of the following folders
+/typings
+
+# Visual Studio Code Config
+/.vscode
+jsconfig.json
+typings.json

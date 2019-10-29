@@ -1,0 +1,43 @@
+version: "3"
+services:
+  app:
+    container_name: ec2-documents-manager
+    image: ec2-documents-manager
+    depends_on:
+      - mysql
+      - redis
+    volumes:
+      - .:/var/www/html
+    build: 
+      context: .
+      dockerfile: docker/Dockerfile
+    env_file:
+      - .docker.env
+    environment:
+      CONTAINER_ROLE: app
+    ports:
+      - 8080:80
+  mysql:
+    container_name: ec2-documents-manager-mysql
+    image: mysql:5.7
+    volumes:
+      - mysql:/var/lib/mysql
+    environment: 
+      MYSQL_DATABASE: ec2-documents-manager
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: ec2
+      MYSQL_PASSWORD: secretec2
+    ports:
+      - 13306:3306
+  redis:
+    container_name: ec2-documents-manager-redis
+    image: redis:5-alpine
+    volumes:
+      - redis:/data
+    ports:
+      - 16379:6379
+volumes:
+  mysql:
+    driver: "local"
+  redis:
+    driver: "local"
