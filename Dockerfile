@@ -14,6 +14,7 @@ COPY docker/apache/vhost.conf /etc/apache2/sites-available/000-default.conf
 COPY docker/php/conf.d/*.ini /usr/local/etc/php/conf.d/
 COPY docker/php/php.ini /usr/local/etc/php/php.ini
 COPY . /var/www/html
+COPY aws/.env.aws /var/www/html/.env
 
 RUN apt-get -yqq update \
     && apt-get -yqq install --no-install-recommends zip unzip \
