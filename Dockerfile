@@ -14,21 +14,31 @@ COPY docker/apache/vhost.conf /etc/apache2/sites-available/000-default.conf
 COPY docker/php/conf.d/*.ini /usr/local/etc/php/conf.d/
 COPY docker/php/php.ini /usr/local/etc/php/php.ini
 COPY . /var/www/html
-COPY docker/aws/.env.aws /var/www/html/.env
+COPY docker/env/.env.example /var/www/html/.env
 
+# Install Node and Node Packages
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+    && apt-get -yqq update \
+    && apt-get -yqq install --no-install-recommends nodejs \
+    && npm install
+
+# Install Composer
 RUN apt-get -yqq update \
     && apt-get -yqq install --no-install-recommends zip unzip \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && chmod +x /usr/local/bin/composer \
-    && composer check-platform-reqs \
-    && chown -R www-data:www-data /var/www/html \
-    && chmod +x /usr/local/bin/start
+    && composer check-platform-reqs
 
+# Install Composer Packages
 RUN composer install \
     --no-interaction \
     --no-plugins \
     --no-scripts \
     --prefer-dist
+
+# Change Permissions
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod +x /usr/local/bin/start
 
 EXPOSE 80
 
