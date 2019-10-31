@@ -21,6 +21,12 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
     && chown -R www-data:www-data /var/www/html \
     && chmod +x /usr/local/bin/start
 
+RUN composer install \
+    --no-interaction \
+    --no-plugins \
+    --no-scripts \
+    --prefer-dist
+
 EXPOSE 80
 
 CMD [ "/usr/local/bin/start" ]
