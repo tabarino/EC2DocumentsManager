@@ -1,0 +1,11 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t tabarino/ec2-documents-manager -f docker/Dockerfile .
+
+script:
+  - docker run tabarino/ec2-documents-manager php --version
+  - docker run tabarino/ec2-documents-manager php -m
