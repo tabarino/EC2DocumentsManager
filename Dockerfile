@@ -15,7 +15,9 @@ COPY docker/php/conf.d/*.ini /usr/local/etc/php/conf.d/
 COPY docker/php/php.ini /usr/local/etc/php/php.ini
 COPY . /var/www/html
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+RUN apt-get -yqq update \
+    && apt-get -yqq install --no-install-recommends zip unzip \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && chmod +x /usr/local/bin/composer \
     && composer check-platform-reqs \
     && chown -R www-data:www-data /var/www/html \
