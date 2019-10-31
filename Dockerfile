@@ -13,4 +13,6 @@ COPY . /var/www/html
 RUN chown -R www-data:www-data /var/www/html \
     && chmod +x /usr/local/bin/start
 
+EXPOSE 80
+
 CMD [ "/usr/local/bin/start" ]
