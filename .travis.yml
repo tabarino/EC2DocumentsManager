@@ -9,3 +9,17 @@ before_install:
 script:
   - docker run tabarino/ec2-documents-manager php --version
   - docker run tabarino/ec2-documents-manager php -m
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-west-1"
+  app: "EC2DocumentsManager"
+  env: "Ec2documentsmanager-env"
+  bucket_name: "elasticbeanstalk-eu-west-1-508723377318"
+  bucket_path: "EC2DocumentsManager"
+  on:
+    branch: master
+  access_key_id:
+    secure: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
