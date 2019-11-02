@@ -15,9 +15,13 @@ fi
 echo "The container role is $role"
 
 if [ "$role" = "app" ]; then
-    exec apache2-foreground
     cd /var/www/html
     php artisan key:generate
+    php artisan cache:clear
+    php artisan config:clear
+    php artisan migrate
+
+    exec apache2-foreground
 else
     echo "Could not match the container role \"role\""
     exit 1
