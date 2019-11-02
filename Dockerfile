@@ -14,13 +14,14 @@ COPY docker/apache/vhost.conf /etc/apache2/sites-available/000-default.conf
 COPY docker/php/conf.d/*.ini /usr/local/etc/php/conf.d/
 COPY docker/php/php.ini /usr/local/etc/php/php.ini
 COPY . /var/www/html
-COPY docker/env/.env.example /var/www/html/.env
+COPY docker/env/.env.production /var/www/html/.env
 
 # Install Node and Node Packages
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
     && apt-get -yqq update \
     && apt-get -yqq install --no-install-recommends nodejs \
-    && npm install
+    && npm install \
+    && npm run prod
 
 # Install Composer
 RUN apt-get -yqq update \

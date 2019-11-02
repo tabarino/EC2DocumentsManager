@@ -16,6 +16,8 @@ echo "The container role is $role"
 
 if [ "$role" = "app" ]; then
     exec apache2-foreground
+    cd /var/www/html
+    php artisan key:generate
 else
     echo "Could not match the container role \"role\""
     exit 1
