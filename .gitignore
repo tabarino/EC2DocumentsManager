@@ -24,3 +24,6 @@ typings/*
 .vscode/*
 jsconfig.json
 typings.json
+
+# AWS Key Pair
+ec2documentsmanager.pem

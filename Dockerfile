@@ -25,7 +25,7 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
 
 # Install Composer
 RUN apt-get -yqq update \
-    && apt-get -yqq install --no-install-recommends zip unzip \
+    && apt-get -yqq install --no-install-recommends zip unzip vim \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && chmod +x /usr/local/bin/composer \
     && composer check-platform-reqs
