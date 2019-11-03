@@ -19,7 +19,6 @@ if [ "$role" = "app" ]; then
     php artisan key:generate
     php artisan cache:clear
     php artisan config:clear
-    php artisan migrate
 
     exec apache2-foreground
 else
