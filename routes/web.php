@@ -13,9 +13,11 @@
 
 Auth::routes();
 
+
 Route::get('/', 'PagesController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/about', 'PagesController@about');
+
 
 Route::get('/documents', 'DocumentsController@index');
 Route::get('/documents/{document}', 'DocumentsController@show');
