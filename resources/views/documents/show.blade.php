@@ -23,7 +23,6 @@
                     <li>1 tsp. baking soda</li>
                     <li>1½ cups quality milk chocolate, in chip-sized chunks</li>
                     <li>Flaky sea salt</li>
-                    <li>2 cups all-purpose flour</li>
                 </ul>
                 <ol>
                     <li>Position an oven rack in the center of the oven and preheat to 350ºF. Line a cookie sheet with parchment paper.</li>
