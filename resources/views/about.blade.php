@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <h1>Welcome</h1>
+                <h1>About</h1>
                 <p class="lead">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Quod iste est cupiditate quaerat doloremque unde a odio ipsam officia?

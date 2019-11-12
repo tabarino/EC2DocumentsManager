@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get User's Documents
+     * 
+     * @return array
+     */
+    public function documents()
+    {
+        return $this->hasMany(Document::class, 'owner_id');
+    }
 }
