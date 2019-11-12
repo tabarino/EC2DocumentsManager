@@ -23,7 +23,6 @@
                     <li>1 tsp. baking soda</li>
                     <li>1½ cups quality milk chocolate, in chip-sized chunks</li>
                     <li>Flaky sea salt</li>
-                    <li>2 cups all-purpose flour</li>
                     <li>Love</li>
                 </ul>
                 <ol>
