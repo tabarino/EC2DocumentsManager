@@ -23,4 +23,12 @@ class PagesController extends Controller
     {
         return view('welcome');
     }
+
+    /**
+     * About Page
+     */
+    public function about()
+    {
+        return view('about');
+    }
 }
